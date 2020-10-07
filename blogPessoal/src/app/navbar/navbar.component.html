@@ -1,5 +1,5 @@
     <div class="container-fluid d-flex justify-content-center">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">       
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
@@ -7,7 +7,25 @@
                 </li>
                 <li class="nav-item ">
                   <a class="nav-link texto text-monospace text-uppercase text-weight-bold p-3" routerLink="/feed">Feed</a>
-                </li> 
+                </li>
+
+                <div *ngIf="authService.btncadastrar()">
+                <li class="nav-item ">
+                  <a class="nav-link texto text-monospace text-uppercase text-weight-bold p-3" routerLink="/cadastro">cadastrar</a>
+                </li>
+              </div>
+                <div *ngIf="authService.btnlogin()">
+                  <li class="nav-item ">
+                    <a class="nav-link texto text-monospace text-uppercase text-weight-bold p-3" routerLink="/loguin">login</a>
+                  </li>
+                </div>
+
+               <div *ngIf="authService.btnsair()">
+                <li class="nav-item ">
+                  <a class="nav-link texto text-monospace text-uppercase text-weight-bold p-3" (click)="sair()">Sair</a>
+                </li>
+               </div>
+
               </ul>
             </div>
           </nav>
