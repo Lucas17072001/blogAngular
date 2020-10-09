@@ -24,4 +24,12 @@ return  this.http.get(`http://localhost:8080/tema/${id}`, this.token)
   postTema(tema: tema){
    return this.http.post("http://localhost:8080/tema", tema,this.token)
   }
+
+  putTema(tema: tema){
+    return this.http.put("http://localhost:8080/tema", tema,this.token)
+   }
+
+  deleteTema(id: number){
+    return  this.http.delete(`http://localhost:8080/tema/${id}`, this.token)
+      }
 }
