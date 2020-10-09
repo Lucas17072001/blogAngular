@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { AuthService } from './../service/auth.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -20,6 +21,6 @@ export class NavbarComponent implements OnInit {
 
   sair(){
     this.router.navigate(["/loguin"])
-    localStorage.clear()
+    environment.token = ""
   }
 }

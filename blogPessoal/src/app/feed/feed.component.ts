@@ -1,8 +1,10 @@
+import { environment } from './../../environments/environment.prod';
 import { TemaService } from './../service/tema.service';
 import { PostagemService } from './../service/postagem.service';
 import { tema } from './../model/tema';
 import { postagem } from './../model/postagem';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -23,10 +25,17 @@ reverse: true
 
   constructor(
     private postagemService: PostagemService,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    let token = environment.token
+    if(token == ""){
+this.router.navigate(["/loguin"])
+alert("faça o loguin antes de entrar no feed")
+    }
+
     window.scroll(0,0)
     this.findAllPostagens()
     this.findAllTemas()

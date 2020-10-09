@@ -21,6 +21,8 @@ import { PutTemaComponent } from './put-tema/put-tema.component';
 import { DeletePostagemComponent } from './delete-postagem/delete-postagem.component';
 import { DeleteTemaComponent } from './delete-tema/delete-tema.component';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,10 @@ import { DeleteTemaComponent } from './delete-tema/delete-tema.component';
 
 
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { UserLogin } from './../model/UserLoguin';
 import { Router } from '@angular/router';
 import { AuthService } from './../service/auth.service';
@@ -23,6 +24,7 @@ export class LoguinComponent implements OnInit {
   entra(){
 this.AuthService.logar(this.userLoguin).subscribe((resp: UserLogin)=>{
   this.userLoguin = resp
+  environment.token = this.userLoguin.token
   localStorage.setItem("token", this.userLoguin.token)
   this.router.navigate (["/feed"])
 })

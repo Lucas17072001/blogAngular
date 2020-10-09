@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../model/User';
@@ -29,8 +30,8 @@ return ok
 
   btnlogin(){
     let ok = false
-    let token = localStorage.getItem("token")
-    if(token == null){
+    let token = environment.token
+    if(token == ""){
     ok = true
     }
     return ok
@@ -38,8 +39,8 @@ return ok
 
   btncadastrar(){
     let ok = false
-    let token = localStorage.getItem("token")
-    if(token == null){
+    let token = environment.token
+    if(token == ""){
     ok = true
     }
     return ok
